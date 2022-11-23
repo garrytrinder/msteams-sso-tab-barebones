@@ -43,7 +43,7 @@ const Tab = () => {
     <div className={classes.main}>
       <section className={classes.section}>
         <Title1>
-          {userInfo.data
+          {userInfo.data?.displayName
             ? `Welcome, ${userInfo.data.displayName}!`
             : "Personal Tab"}
         </Title1>
@@ -52,7 +52,10 @@ const Tab = () => {
         <Button
           appearance="primary"
           disabled={profile.loading || profile.data?.profile}
-          onClick={profile.reload}
+          onClick={() => {
+            profile.reload();
+            userInfo.reload();
+          }}
         >
           Get Data
         </Button>
