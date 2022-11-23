@@ -1,18 +1,23 @@
-import { Button, Title1, makeStyles, shorthands } from "@fluentui/react-components";
+import {
+  Button,
+  Title1,
+  makeStyles,
+  shorthands,
+} from "@fluentui/react-components";
 import { useData, useGraph } from "@microsoft/teamsfx-react";
 import { TeamsFxContext } from "../context";
 import { useContext } from "react";
 
 const useStyles = makeStyles({
   main: {
-    ...shorthands.gap('36px'),
-    ...shorthands.padding('24px'),
-    display: 'flex',
-    flexDirection: 'column',
-    flexWrap: 'wrap'
+    ...shorthands.gap("36px"),
+    ...shorthands.padding("24px"),
+    display: "flex",
+    flexDirection: "column",
+    flexWrap: "wrap",
   },
   section: {
-    width: 'fit-content'
+    width: "fit-content",
   },
 });
 
@@ -37,24 +42,28 @@ const Tab = () => {
   return (
     <div className={classes.main}>
       <section className={classes.section}>
-        <Title1>Welcome, {userInfo.data?.displayName}!</Title1>
+        <Title1>
+          {userInfo.data
+            ? `Welcome, ${userInfo.data.displayName}!`
+            : "Personal Tab"}
+        </Title1>
       </section>
       <section className={classes.section}>
-        <Button appearance="primary"
+        <Button
+          appearance="primary"
           disabled={profile.loading || profile.data?.profile}
-          onClick={profile.reload}>
-          Consent
+          onClick={profile.reload}
+        >
+          Get Data
         </Button>
       </section>
-      {
-        profile.data && (
-          <section className={classes.section}>
-            <pre>{JSON.stringify(profile.data, null, 2)}</pre>
-          </section>
-        )
-      }
+      {profile.data && (
+        <section className={classes.section}>
+          <pre>{JSON.stringify(profile.data, null, 2)}</pre>
+        </section>
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default Tab;
