@@ -50,6 +50,7 @@
         "identity",
         "messageTeamMembers"
     ],
+    "showLoadingIndicator": true,
     "validDomains": [
         "{{state.fx-resource-frontend-hosting.domain}}"
     ],

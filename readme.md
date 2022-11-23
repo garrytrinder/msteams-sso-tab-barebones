@@ -9,6 +9,7 @@ This project serves as a base for creating a Microsoft Teams app with the basic 
 The following list describes the updates made to the SSO-enabled tab project scaffolded by Microsoft Teams Toolkit for Visual Studio Code.
 
 - Converted class based components to functional components
+- Implemented native loading indicator
 - Implemented Fluent UI 9
 - ESLint and recommend plugins implemented
 - Simplified folder structure
